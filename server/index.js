@@ -20,6 +20,9 @@ const PORT =  process.env.PORT || 5000
 
 
 //To get access to the name value pairs send in the message Body of POST Request.
+// POST HTTP requesst... name value pairs HEADER body -- name value pairs
+// Express that we want the body
+// GET request
  app.use(express.urlencoded({extended:true}))
  app.use(express.json())
 
@@ -33,9 +36,16 @@ app.use(express.static(path.join(__dirname, "../client"), {extensions: ["html", 
  
  // Routing Middleware.  
  // login route.
+ // app.get(), app.post(), app.delete()
  app.post('/login', (req, res)=>{
    console.log(req.body)
-   res.send("trying to login")
+   // res.send() text
+   // res.json() json
+   // res.sendFile() path to file
+   // res.redirect() file/ssr
+   // res.render() ssr
+   res.sendFile(path.join(__dirname, "../client/dashboard.html"));
+   //res.send("trying to login")
  })
 
 // Final Middleware 
